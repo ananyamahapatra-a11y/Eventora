@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover events and experiences with Eventora.">
+  <title>Eventora — Find your next thing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#">eventora<span>.</span></a>
+    <nav><a href="#home">Home</a><a href="#events">Explore events</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <div class="header-actions">
+      <button class="location-pill" id="changeLocation" type="button">⌖ <span id="currentLocation">Set your area</span></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☾</button>
+      <a class="button small" href="#events">Find an event ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">GOOD PEOPLE. GREAT PLANS. REAL MOMENTS.</p>
+        <h1>Make plans.<br><em>Make memories.</em></h1>
+        <p class="hero-text">From big ideas to unforgettable nights, find the people, places and experiences worth showing up for.</p>
+        <a class="button" href="#events">Explore events <span>↗</span></a>
+        <p class="hero-note">Discover something happening around you.</p>
+      </div>
+      <div class="hero-art">
+        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=85" alt="Crowd enjoying a live music event">
+        <div class="floating-note"><strong>YOUR NEXT STORY</strong><span>Starts with showing up.</span></div>
+      </div>
+    </section>
+
+    <section class="events-section section-wrap" id="events">
+      <div class="section-heading">
+        <div><p class="eyebrow">PICK YOUR EXPERIENCE</p><h2>Find your <em>next thing.</em></h2></div>
+        <p>Little moments, big experiences.<br>There is something for everyone.</p>
+      </div>
+      <div class="search-row">
+        <input id="searchInput" type="search" placeholder="Search events, categories or places..." aria-label="Search events">
+        <div class="filters" id="categoryFilters">
+          <button class="filter active" data-category="All">All events</button>
+          <button class="filter" data-category="Music">Music</button>
+          <button class="filter" data-category="Art">Art</button>
+          <button class="filter" data-category="Technology">Technology</button>
+          <button class="filter" data-category="Food">Food</button>
+          <button class="filter" data-category="Wellness">Wellness</button>
+        </div>
+      </div>
+      <div class="event-grid" id="eventGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No events match your search. Try another keyword.</p>
+      <p class="demo-note">Note: These are sample events created to demonstrate the website. Dates, venues and prices are not confirmed real-world listings.</p>
+    </section>
+
+    <section class="about-section" id="about">
+      <div><p class="eyebrow">A BETTER WAY TO MAKE PLANS</p><h2>Less scrolling.<br><em>More living.</em></h2></div>
+      <p>Eventora brings experiences into one place. Explore ideas, discover new interests and find an event that makes your day a little more memorable.</p>
+    </section>
+  </main>
+
+  <footer id="contact"><a class="logo" href="#">eventora<span>.</span></a><p>Find your people. Find your moment.</p><small>© 2026 Eventora. Student web designing project.</small></footer>
+
+  <dialog id="locationDialog" class="location-dialog">
+    <div class="pin">⌖</div><p class="eyebrow">A LITTLE CLOSER TO YOU</p>
+    <h2>Where are you <em>joining us from?</em></h2>
+    <p>Enter your city or area to personalise the location context. You do not need to share your home or street address.</p>
+    <form id="locationForm">
+      <label for="userLocation">City / area</label>
+      <input id="userLocation" type="text" placeholder="e.g. Bhubaneswar, Odisha" required minlength="2">
+      <button class="button full" type="submit">Continue to Eventora ↗</button>
+    </form>
+    <button class="skip" id="skipLocation" type="button">Continue without sharing</button>
+  </dialog>
+
+  <dialog id="eventDialog" class="event-dialog">
+    <button class="dialog-close" id="closeEvent" aria-label="Close">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <dialog id="registerDialog" class="register-dialog">
+    <button class="dialog-close" id="closeRegister" aria-label="Close">×</button>
+    <p class="eyebrow">SAVE YOUR SPOT</p><h2>Event <em>registration</em></h2>
+    <p id="registerEventName"></p>
+    <form id="registrationForm">
+      <label>Full name<input name="name" required placeholder="Your name"></label>
+      <label>Email address<input name="email" type="email" required placeholder="you@example.com"></label>
+      <label>Phone number<input name="phone" type="tel" required pattern="[0-9+\-\s]{7,15}" placeholder="Your phone number"></label>
+      <button class="button full" type="submit">Confirm registration ↗</button>
+    </form>
+    <p class="form-message" id="formMessage" role="status"></p>
+    <small class="demo-note">Demo only: registration is saved in this browser and is not sent to an event organiser.</small>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
